@@ -21,13 +21,20 @@ function playNote(event) {
 
     // Typed or pressed key
     let key = document.querySelector(`[data-key="${audioKeyCode}"]`)
-    console.log(key)
+    // console.log(key)
 
     // If key exists 
+    const cantFoundAnyKey = !key
 
+    if(cantFoundAnyKey) {
+        return;
+    }
 
     // Play the respective sound of each key pressed
+    console.log('Play note')
 }
+
+
 
 
 function getKeyCode(event) {
