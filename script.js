@@ -19,14 +19,9 @@ function playNote(event) {
    let audioKeyCode = getKeyCode(event);
 
 
-    // console.log(event.type)
-    // console.log(keyCode)
-    // one console.log to show the representative event when pressed or clicked
-    // one console.log and other to show if it appears when clicked or pressed.
-
-
     // Typed or pressed key
-    
+    let key = document.querySelector(`[data-key="${audioKeyCode}"]`)
+    console.log(key)
 
     // If key exists 
 
@@ -44,6 +39,8 @@ function getKeyCode(event) {
     } else {
         keyCode = event.target.dataset.key
     }
+
+    return keyCode
 }
 
 
