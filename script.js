@@ -57,7 +57,7 @@ function getKeyCode(event) {
 function playAudio(audioKeyCode) {
     // Play the respective sound of each key pressed
     let audio = document.querySelector(`audio[data-key="${audioKeyCode}"]`)
-    console.log(audio)
+    // console.log(audio)
     //audio.currentTime it's to make the audio start from "0", from the beginning.
     audio.currentTime = 0;
     // self explained :)
