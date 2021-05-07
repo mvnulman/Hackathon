@@ -16,7 +16,7 @@ function playNote(event) {
 
 
     // keyCode reference
-   let audioKeyCode = getKeyCode(event);
+    let audioKeyCode = getKeyCode(event);
 
 
     // Typed or pressed key
@@ -26,15 +26,20 @@ function playNote(event) {
     // If key exists 
     const cantFoundAnyKey = !key
 
-    if(cantFoundAnyKey) {
+    if (cantFoundAnyKey) {
         return;
     }
 
-    //play audio function call
-    playAudio (audioKeyCode)
+    //function to visual represent with a blur when the piano key is pressed
+    addPlayingClass(key)
 
+    //play audio function call
+    playAudio(audioKeyCode)
 }
 
+function addPlayingClass(key) {
+    key.classList.add('playing')
+}
 
 function getKeyCode(event) {
     let keyCode;
@@ -48,22 +53,30 @@ function getKeyCode(event) {
 
     return keyCode
 }
-    function playAudio (audioKeyCode){
-        // Play the respective sound of each key pressed
-        let audio = document.querySelector(`audio[data-key="${audioKeyCode}"]`)
-        console.log(audio)
-        //audio.currentTime it's to make the audio start from "0", from the beginning.
-        audio.currentTime = 0;
-        // self explained :)
-        audio.play();
-    }
 
+function playAudio(audioKeyCode) {
+    // Play the respective sound of each key pressed
+    let audio = document.querySelector(`audio[data-key="${audioKeyCode}"]`)
+    console.log(audio)
+    //audio.currentTime it's to make the audio start from "0", from the beginning.
+    audio.currentTime = 0;
+    // self explained :)
+    audio.play();
+}
+
+
+// function to remove the blur after the piano key is pressed (70ms)
+function removePlayingClass(event) {
+    event.target.classList.remove("playing")
+
+}
 
 
 //Click events with mouse
 // window.addEventListener("click", playNote)
-keys.forEach( function(key){
+keys.forEach(function (key) {
     key.addEventListener("click", playNote);
+    key.addEventListener("transitionend", removePlayingClass)
 })
 
 //Keyboard events
