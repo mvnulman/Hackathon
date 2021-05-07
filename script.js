@@ -72,6 +72,7 @@ function removePlayingClass(event) {
 }
 
 
+function registerEvents () {
 //Click events with mouse
 // window.addEventListener("click", playNote)
 keys.forEach(function (key) {
@@ -81,3 +82,7 @@ keys.forEach(function (key) {
 
 //Keyboard events
 window.addEventListener("keydown", playNote)
+
+}
+
+window.addEventListener("load", registerEvents)
