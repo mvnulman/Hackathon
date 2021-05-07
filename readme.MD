@@ -1,6 +1,6 @@
 # Hackathon - The Virtual Piano Keyboard
 
-![screenshot](https://user-images.githubusercontent.com/63374582/117507140-5ec3b380-af8f-11eb-817f-111aa3c92ed2.png)
+![app-gif](https://user-images.githubusercontent.com/63374582/117508091-ad258200-af90-11eb-88dd-228e1f5f251a.gif)
 
 ## Description
 
