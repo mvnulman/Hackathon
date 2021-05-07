@@ -20,7 +20,7 @@ function playNote(event) {
 
 
     // Typed or pressed key
-    let key = document.querySelector(`[data-key="${audioKeyCode}"]`)
+    let key = document.querySelector(`.key[data-key="${audioKeyCode}"]`)
     // console.log(key)
 
     // If key exists 
@@ -30,11 +30,10 @@ function playNote(event) {
         return;
     }
 
-    // Play the respective sound of each key pressed
-    console.log('Play note')
+    //play audio function call
+    playAudio (audioKeyCode)
+
 }
-
-
 
 
 function getKeyCode(event) {
@@ -49,6 +48,16 @@ function getKeyCode(event) {
 
     return keyCode
 }
+    function playAudio (audioKeyCode){
+        // Play the respective sound of each key pressed
+        let audio = document.querySelector(`audio[data-key="${audioKeyCode}"]`)
+        console.log(audio)
+        //audio.currentTime it's to make the audio start from "0", from the beginning.
+        audio.currentTime = 0;
+        // self explained :)
+        audio.play();
+    }
+
 
 
 //Click events with mouse
